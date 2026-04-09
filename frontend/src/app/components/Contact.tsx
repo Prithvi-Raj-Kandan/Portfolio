@@ -23,10 +23,9 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: <Mail size={24} />, href: 'mailto:alex@example.com', label: 'Email' },
-    { icon: <Github size={24} />, href: 'https://github.com', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, href: 'https://twitter.com', label: 'Twitter' }
+    { icon: <Github size={24} />, href: 'https://github.com/Prithvi-Raj-Kandan', label: 'GitHub' },
+    { icon: <Linkedin size={24} />, href: 'https://www.linkedin.com/in/p-prithvi-raj-kandan-a687602a1/', label: 'LinkedIn' },
+    { icon: <Twitter size={24} />, href: 'https://x.com/PrithviRaj1213', label: 'X' }
   ];
 
   return (
@@ -50,7 +49,7 @@ export function Contact() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <Mail className="text-gray-400" />
-                <span>alex.morgan@example.com</span>
+                <span>prithviraj82rt@gmail.com</span>
               </div>
             </div>
 
