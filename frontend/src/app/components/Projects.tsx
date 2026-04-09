@@ -5,30 +5,37 @@ export function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with payment integration, user authentication, and admin dashboard.',
-      image: 'https://images.unsplash.com/photo-1758873271902-a63ecd5b5235?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBkZXNpZ24lMjBsYXB0b3B8ZW58MXx8fHwxNzc1Njk4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: '#',
-      githubUrl: '#'
+      title: 'LogGuard',
+      description: 'A reliability-focused logging and monitoring utility to track, audit, and debug system behavior efficiently.',
+      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/LogGuard',
+      tags: ['Python', 'Observability', 'Backend'],
+      liveUrl: 'https://log-guard-silk.vercel.app/',
+      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/LogGuard'
     },
     {
       id: 2,
-      title: 'Mobile Fitness App',
-      description: 'A React Native app for tracking workouts, nutrition, and fitness goals with real-time data synchronization.',
-      image: 'https://images.unsplash.com/photo-1633250391894-397930e3f5f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXZlbG9wbWVudHxlbnwxfHx8fDE3NzU2NjkwMzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React Native', 'Firebase', 'Redux', 'TypeScript'],
-      liveUrl: '#',
-      githubUrl: '#'
+      title: 'Hotel_Receptionist',
+      description: 'An AI-powered receptionist workflow for hospitality use cases, focused on automation and guest-facing interactions.',
+      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/Hotel_Receptionist',
+      tags: ['AI', 'Automation', 'Assistant'],
+      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/Hotel_Receptionist'
     },
     {
       id: 3,
-      title: 'Design System Library',
-      description: 'A comprehensive component library with documentation, used across multiple products and teams.',
-      image: 'https://images.unsplash.com/photo-1632937145991-91620be68319?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NzU2ODQyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React', 'Storybook', 'Tailwind CSS', 'TypeScript'],
-      liveUrl: '#',
-      githubUrl: '#'
+      title: 'ProductionRAG',
+      description: 'A production-style Retrieval-Augmented Generation pipeline built for robust, context-grounded AI responses.',
+      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/ProductionRAG',
+      tags: ['RAG', 'LLM', 'Vector Search'],
+      liveUrl: 'https://production-rag-two.vercel.app/',
+      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/ProductionRAG'
+    },
+    {
+      id: 4,
+      title: 'MS-Excel-MCP-Server',
+      description: 'An MCP server integration that enables AI-assisted workflows for Microsoft Excel operations and automation tasks.',
+      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/MS-Excel-MCP-Server',
+      tags: ['MCP', 'Excel', 'AI Tooling'],
+      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/MS-Excel-MCP-Server'
     }
   ];
 
@@ -38,15 +45,15 @@ export function Projects() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl mb-4">Featured Projects</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience.
+            Here are some of my recent AI-focused projects. Scroll horizontally to explore more.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group min-w-[320px] md:min-w-[420px] lg:min-w-[460px] snap-start"
             >
               <div className="relative h-56 overflow-hidden">
                 <ImageWithFallback 
@@ -69,15 +76,21 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a 
-                    href={project.liveUrl}
-                    className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors"
-                  >
-                    <ExternalLink size={20} />
-                    <span>Live Demo</span>
-                  </a>
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors"
+                    >
+                      <ExternalLink size={20} />
+                      <span>Live</span>
+                    </a>
+                  )}
                   <a 
                     href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
                     className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors"
                   >
                     <Github size={20} />
