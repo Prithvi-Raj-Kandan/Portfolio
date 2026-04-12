@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Github, Linkedin, Twitter, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 export function Contact() {
@@ -32,9 +32,9 @@ export function Contact() {
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">Chat with my AI</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? Feel free to reach out!
+            Feel free to chat with PrithviLLM, an llm fine tuned to respond with my personality.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4 items-center">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
@@ -64,6 +64,15 @@ export function Contact() {
                   {link.icon}
                 </a>
               ))}
+
+              <a
+                href="/Prithvi-Raj-Resume.docx"
+                download
+                className="h-12 px-4 bg-black text-white rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
+              >
+                <FileText size={20} />
+                <span className="text-sm">Download Resume</span>
+              </a>
             </div>
           </div>
 

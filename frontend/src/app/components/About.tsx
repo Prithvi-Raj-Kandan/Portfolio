@@ -9,13 +9,13 @@ export function About() {
     },
     {
       icon: <Palette size={32} />,
-      title: 'Creative Design',
-      description: 'Bringing ideas to life with beautiful and intuitive user interfaces.'
+      title: 'Evolvable Features',
+      description: 'Building modular features that can evolve quickly as user needs and product goals change.'
     },
     {
       icon: <Zap size={32} />,
-      title: 'Fast Performance',
-      description: 'Optimizing for speed and performance across all devices.'
+      title: 'Fast Shipping',
+      description: 'Shipping practical solutions quickly with a strong focus on reliability and iteration speed.'
     }
   ];
 
@@ -25,8 +25,7 @@ export function About() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            I'm a passionate developer with 5+ years of experience in creating 
-            web applications that users love.
+            I'm an undergrad student in my pre-final year, BE in AIML, who loves building AI systems.
           </p>
         </div>
 
@@ -49,18 +48,16 @@ export function About() {
           <h3 className="text-3xl mb-6">My Journey</h3>
           <div className="space-y-4 text-gray-600">
             <p>
-              I started my journey in web development back in 2019, driven by a passion for 
-              creating beautiful and functional digital experiences. Over the years, I've had 
-              the privilege of working with startups, agencies, and established companies.
+              I started my journey back in 2023, when I joined my undergrad.
             </p>
             <p>
-              My approach combines technical expertise with creative problem-solving. I believe 
-              that great design and development go hand in hand, and I'm always exploring new 
-              technologies and techniques to deliver the best possible solutions.
+              Driven by passion and curiosity on the developments in the field of AI and Computer Science technologies, I equipped myself with necessary skills in order to bring to life the ideas that I have.
             </p>
             <p>
-              When I'm not coding, you can find me contributing to open-source projects, 
-              writing technical articles, or exploring new design trends.
+              My approach combines technical expertise with creative problem-solving. I believe that great design and development go hand in hand, and I'm always exploring new technologies and techniques to deliver the best possible solutions.
+            </p>
+            <p>
+              Since then I have been building projects, working as an intern, attending conferences, and getting better at being an AI engineer.
             </p>
           </div>
         </div>
