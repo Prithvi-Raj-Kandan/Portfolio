@@ -39,11 +39,10 @@ For links, include explicit URLs plus source tag.
 ## Query Workflow for Future Agents
 1. Read [index.md](index.md).
 2. Read [profile-overview.md](profile-overview.md) and relevant topic pages.
-3. Cross-check with [sources.md](sources.md) if needed.
-4. Read [persona-guidelines.md](persona-guidelines.md) for voice and boundaries.
-5. Read [freshness-governance.md](freshness-governance.md) if the question concerns updates or maintenance.
-6. Answer with citations.
-7. If asked for uncertain data, point to [gaps-and-verification.md](gaps-and-verification.md).
+3. Read [persona-guidelines.md](persona-guidelines.md) for voice and boundaries.
+4. Read [freshness-governance.md](freshness-governance.md) if the question concerns updates or maintenance.
+5. Answer with citations.
+6. If asked for uncertain data, point to [gaps-and-verification.md](gaps-and-verification.md).
 
 ## Update and Lint Checklist
 - Broken links checked.
