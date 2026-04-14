@@ -7,7 +7,7 @@ export function Projects() {
       id: 1,
       title: 'LogGuard',
       description: 'A reliability-focused logging and monitoring utility to track, audit, and debug system behavior efficiently.',
-      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/LogGuard',
+      image: '/logguard-screenshot.png',
       tags: ['Python', 'Observability', 'Backend'],
       liveUrl: 'https://log-guard-silk.vercel.app/',
       githubUrl: 'https://github.com/Prithvi-Raj-Kandan/LogGuard'
@@ -24,7 +24,7 @@ export function Projects() {
       id: 3,
       title: 'ProductionRAG',
       description: 'A production-style Retrieval-Augmented Generation pipeline built for robust, context-grounded AI responses.',
-      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/ProductionRAG',
+      image: '/production-rag-screenshot.png',
       tags: ['RAG', 'LLM', 'Vector Search'],
       liveUrl: 'https://production-rag-two.vercel.app/',
       githubUrl: 'https://github.com/Prithvi-Raj-Kandan/ProductionRAG'
