@@ -45,9 +45,6 @@ const extractAssistantReply = (data: any): string => {
   const directOutput = extractTextFromContent(data?.response?.output);
   if (directOutput) return directOutput;
 
-  const rawOutput = extractTextFromContent(data?.raw_response?.output);
-  if (rawOutput) return rawOutput;
-
   const rawMessages: ApiMessage[] =
     data?.raw_response?.messages ?? data?.response?.messages ?? [];
 
