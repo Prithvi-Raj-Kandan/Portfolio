@@ -13,6 +13,10 @@ interface ApiMessage {
   content?: unknown;
 }
 
+const API_BASE_URL =
+  (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, '') ||
+  'http://localhost:8000';
+
 const extractTextFromContent = (content: unknown): string => {
   if (typeof content === 'string') {
     return content.trim();
@@ -107,7 +111,7 @@ export function ChatInterface() {
     try {
       // Connect to backend API endpoint
       const response = await fetch(
-        `http://localhost:8000/chat?user_input=${encodeURIComponent(input)}`,
+        `${API_BASE_URL}/chat?user_input=${encodeURIComponent(input)}`,
         {
           method: 'POST',
           headers: {

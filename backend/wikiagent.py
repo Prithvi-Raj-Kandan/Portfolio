@@ -25,7 +25,13 @@ if AGENT_VERBOSE:
     logging.getLogger("portfolio.agent").info("LangChain verbose/debug logging is enabled.")
 
 def wiki_agent():
-    prompt_file = Path(r"C:\Users\PRITHVI RAJ\Portfolio\backend\portfolio_agent_system_prompt.md")
+    repo_root = Path(__file__).resolve().parents[1]
+    prompt_file = Path(
+        os.getenv(
+            "SYSTEM_PROMPT_PATH",
+            repo_root / "backend" / "portfolio_agent_system_prompt.md",
+        )
+    ).resolve()
     system_prompt = prompt_file.read_text(encoding="utf-8")
     
     tools = [list_wiki_files, read_wiki_page, upsert_wiki_page]

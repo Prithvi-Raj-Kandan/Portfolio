@@ -14,17 +14,35 @@ logging.basicConfig(
 )
 logger = logging.getLogger("portfolio.chat")
 INCLUDE_RAW_RESPONSE = os.getenv("INCLUDE_RAW_RESPONSE", "false").lower() in {"1", "true", "yes", "on"}
+DEFAULT_CORS_ORIGINS = ",".join(
+    [
+        "https://www.prithvirajkandan.dev",
+        "https://prithvirajkandan.dev",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
+)
+
+
+def _parse_cors_origins() -> list[str]:
+    raw_origins = os.getenv("CORS_ORIGINS", DEFAULT_CORS_ORIGINS)
+    return [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (you can specify specific origins if needed)
+    allow_origins=_parse_cors_origins(),
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
 )
 
 agent = wiki_agent()
+
+
+@app.get("/health")
+async def health() -> dict[str, str]:
+    return {"status": "ok"}
 
 @app.post("/chat")
 async def chat_endpoint(user_input: str):
