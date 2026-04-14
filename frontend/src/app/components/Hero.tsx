@@ -1,4 +1,5 @@
 import { ArrowDown } from 'lucide-react';
+import { ChatInterface } from './ChatInterface';
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -9,7 +10,8 @@ export function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="max-w-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Hero Content */}
           <div className="space-y-6">
             <div className="space-y-2">
               <p className="text-lg text-gray-600">Hello, I'm</p>
@@ -37,6 +39,11 @@ export function Hero() {
                 Chat with my AI
               </button>
             </div>
+          </div>
+
+          {/* Right: Chat Interface */}
+          <div className="hidden lg:block">
+            <ChatInterface />
           </div>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
