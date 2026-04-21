@@ -4,8 +4,49 @@ from langchain.tools import tool
 import logging
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-WIKI_DIR = Path(os.getenv("WIKI_DIR", REPO_ROOT / "prithvipedia" / "prithviwiki")).resolve()
 logger = logging.getLogger("portfolio.wiki")
+
+
+def _candidate_wiki_dirs() -> list[Path]:
+    candidates: list[Path] = []
+
+    wiki_dir_env = os.getenv("WIKI_DIR", "").strip()
+    if wiki_dir_env:
+        candidates.append(Path(wiki_dir_env))
+
+    candidates.extend(
+        [
+            REPO_ROOT / "prithvipedia" / "prithviwiki",
+            REPO_ROOT.parent / "prithvipedia" / "prithviwiki",
+            Path.cwd() / "prithvipedia" / "prithviwiki",
+            Path("/workspace/source/prithvipedia/prithviwiki"),
+            Path("/workspace/prithvipedia/prithviwiki"),
+            Path("/app/prithvipedia/prithviwiki"),
+        ]
+    )
+
+    unique_candidates: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        resolved = candidate.expanduser().resolve()
+        marker = str(resolved)
+        if marker not in seen:
+            seen.add(marker)
+            unique_candidates.append(resolved)
+
+    return unique_candidates
+
+
+def _resolve_wiki_dir() -> Path:
+    for candidate in _candidate_wiki_dirs():
+        if candidate.exists() and candidate.is_dir():
+            return candidate
+
+    return _candidate_wiki_dirs()[0]
+
+
+WIKI_DIR = _resolve_wiki_dir()
+logger.info("Resolved wiki directory to %s", WIKI_DIR)
 
 
 def _wiki_dir_exists() -> bool:

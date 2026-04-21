@@ -121,7 +121,7 @@ export function ChatInterface() {
       );
 
       if (!response.ok) {
-        throw new Error('Failed to get response from assistant');
+        throw new Error('api limit reached, try after some time');
       }
 
       const data = await response.json();
@@ -140,7 +140,7 @@ export function ChatInterface() {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again later.'
+        content: 'api limit reached, try after some time'
       };
       setMessages(prev => [...prev, errorMessage]);
     } finally {
