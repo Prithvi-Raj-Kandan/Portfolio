@@ -219,5 +219,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-prithvipedia/.repo-analysis/
-prithvipedia/rawdata/
+backend/prithvipedia/.repo-analysis/
+backend/prithvipedia/rawdata/
