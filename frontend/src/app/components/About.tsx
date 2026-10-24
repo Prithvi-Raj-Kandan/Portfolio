@@ -1,4 +1,3 @@
-import { profile } from "../data";
 import { Reveal } from "./Reveal";
 
 const principles = [
@@ -7,8 +6,8 @@ const principles = [
     copy: "Tool discovery, schema wiring, and single-iteration execution — the unglamorous work that keeps an agent from looping, dropping fields, or wrapping the wrong payload.",
   },
   {
-    title: "Retrieval you can score",
-    copy: "Hybrid search is only useful when faithfulness, relevancy, and latency are measured. I treat evaluation as part of the system, not a demo afterthought.",
+    title: "Forward deployed engineering",
+    copy: "I work directly on ambiguous enterprise workflows, from client problem discovery through design and into production. At Beagle Corporation I led a 5-person pod across five client engagements.",
   },
   {
     title: "Pipelines with tenants",
@@ -31,17 +30,16 @@ export function About() {
           <Reveal delay={0.05}>
             <div className="space-y-5 text-lg leading-relaxed text-zinc-400">
               <p>
-                I&apos;m an AI engineer and forward deployed engineer studying for a B.E. in Artificial Intelligence
-                & Machine Learning at Global Academy of Technology, Bengaluru, expected June 2027.
+                I&apos;m an AI engineer pursuing B.E. in Artificial Intelligence & Machine Learning at Global Academy
+                of Technology, Bengaluru, expected June 2027.
               </p>
               <p>
-                The work I want is the stretch between a model and a workflow a team will actually run: agents with
-                explicit contracts, hybrid RAG with an eval set, and data collectors that stay correct when a second
-                tenant shows up.
+                The work that interests me the most is building software that solves business problems. I&apos;ve built
+                production-grade AI agents and systems for enterprises with unique business problems. I am a person who
+                believes that great design and development go hand in hand, and I&apos;m always exploring new
+                technologies and techniques to deliver the best possible solutions.
               </p>
-              <p>
-                Based in {profile.location}. {profile.availability}.
-              </p>
+              <p>Based in Bengaluru, India. Open to remote work.</p>
             </div>
           </Reveal>
 

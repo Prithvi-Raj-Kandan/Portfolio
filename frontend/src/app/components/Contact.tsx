@@ -11,11 +11,9 @@ export function Contact() {
           <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b0d0b] px-6 py-12 sm:px-10 sm:py-16">
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#d6ff4a]">05 — Contact</p>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-              If you are hiring for AI, FDE, or full-stack work, write to me.
+              Feel free to reach out if you have any opportunities, projects, or ideas to discuss.
             </h2>
-            <p className="mt-5 max-w-2xl text-lg text-zinc-400">
-              {profile.availability}. I read every note — roles, collaborations, and hard technical questions.
-            </p>
+            <p className="mt-5 max-w-2xl text-lg text-zinc-400">{profile.availability}</p>
 
             <a
               href={`mailto:${profile.email}`}
