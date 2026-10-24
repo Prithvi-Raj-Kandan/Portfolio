@@ -1,104 +1,70 @@
-import { ExternalLink, Github } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ExternalLink, Github, Trophy } from "lucide-react";
+import { projects } from "../data";
+import { ProjectMedia } from "./ProjectMedia";
+import { Reveal } from "./Reveal";
 
 export function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: 'LogGuard',
-      description: 'A reliability-focused logging and monitoring utility to track, audit, and debug system behavior efficiently.',
-      image: '/logguard-screenshot.png',
-      tags: ['Python', 'Observability', 'Backend'],
-      liveUrl: 'https://log-guard-silk.vercel.app/',
-      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/LogGuard'
-    },
-    {
-      id: 2,
-      title: 'Hotel_Receptionist',
-      description: 'An AI-powered receptionist workflow for hospitality use cases, focused on automation and guest-facing interactions.',
-      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/Hotel_Receptionist',
-      tags: ['AI', 'Automation', 'Assistant'],
-      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/Hotel_Receptionist'
-    },
-    {
-      id: 3,
-      title: 'ProductionRAG',
-      description: 'A production-style Retrieval-Augmented Generation pipeline built for robust, context-grounded AI responses.',
-      image: '/production-rag-screenshot.png',
-      tags: ['RAG', 'LLM', 'Vector Search'],
-      liveUrl: 'https://production-rag-two.vercel.app/',
-      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/ProductionRAG'
-    },
-    {
-      id: 4,
-      title: 'MS-Excel-MCP-Server',
-      description: 'An MCP server integration that enables AI-assisted workflows for Microsoft Excel operations and automation tasks.',
-      image: 'https://opengraph.githubassets.com/1/Prithvi-Raj-Kandan/MS-Excel-MCP-Server',
-      tags: ['MCP', 'Excel', 'AI Tooling'],
-      githubUrl: 'https://github.com/Prithvi-Raj-Kandan/MS-Excel-MCP-Server'
-    }
-  ];
-
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Here are some of my recent AI-focused projects. Scroll horizontally to explore more.
+    <section id="projects" className="scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#d6ff4a]">03 — Projects</p>
+          <h2 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+            Featured projects
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg text-zinc-400">
+            Four pinned systems. Hover or tap a preview — a still becomes a loop when a demo file is present, and a
+            system diagram holds the frame until then.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="flex gap-8 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
-          {projects.map((project) => (
-            <div 
-              key={project.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group min-w-[320px] md:min-w-[420px] lg:min-w-[460px] snap-start"
-            >
-              <div className="relative h-56 overflow-hidden">
-                <ImageWithFallback 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="px-3 py-1 bg-gray-100 text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  {project.liveUrl && (
-                    <a 
-                      href={project.liveUrl}
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={index % 2 === 0 ? 0 : 0.08} className="h-full">
+              <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#0b0d0b]">
+                <ProjectMedia project={project} />
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-zinc-500">{project.kicker}</p>
+                  {project.badge && (
+                    <p className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#d6ff4a]/30 bg-[#d6ff4a]/10 px-2.5 py-1 text-xs text-[#d6ff4a]">
+                      <Trophy size={13} />
+                      {project.badge}
+                    </p>
+                  )}
+                  <h3 className="mt-3 font-display text-2xl leading-snug tracking-tight text-white">{project.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{project.description}</p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {project.tech.map((tag) => (
+                      <li key={tag} className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-zinc-300">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 flex flex-wrap gap-4 text-sm">
+                    <a
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors"
+                      className="inline-flex items-center gap-2 text-zinc-100 transition hover:text-[#d6ff4a]"
                     >
-                      <ExternalLink size={20} />
-                      <span>Live</span>
+                      <Github size={16} />
+                      GitHub
                     </a>
-                  )}
-                  <a 
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-black hover:text-gray-600 transition-colors"
-                  >
-                    <Github size={20} />
-                    <span>Code</span>
-                  </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-zinc-100 transition hover:text-[#d6ff4a]"
+                      >
+                        <ExternalLink size={16} />
+                        Live
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
