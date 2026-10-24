@@ -1,73 +1,80 @@
-import { ArrowDown } from 'lucide-react';
-import { ChatInterface } from './ChatInterface';
+import { ArrowUpRight, Download } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
+import { profile } from "../data";
+import { SocialLinks } from "./SocialLinks";
 
-type HeroProps = {
-  isChatOpen: boolean;
-  onOpenChat: () => void;
-};
-
-export function Hero({ isChatOpen, onOpenChat }: HeroProps) {
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+export function Hero() {
+  const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Hero Content */}
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <p className="text-lg text-gray-600">Hello, I'm</p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl">
-                Prithvi Raj Kandan
-              </h1>
-              <p className="text-2xl md:text-3xl text-gray-700">
-                AI Engineer
-              </p>
-            </div>
-            <p className="text-lg text-gray-600 max-w-xl">
-              I build cool and reliable AI systems.
-            </p>
-            <div className="flex gap-4">
-              <button 
-                onClick={scrollToAbout}
-                className="px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                Learn More
-              </button>
-              <button 
-                onClick={onOpenChat}
-                className="px-8 py-3 border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors"
-              >
-                Chat with my AI
-              </button>
-            </div>
-          </div>
+    <section id="home" className="relative overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8 lg:pb-32 lg:pt-44">
+      <div className="mx-auto max-w-3xl">
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
+        >
+          Prithvi Raj Kandan
+        </motion.h1>
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="mt-6 font-display text-xl text-zinc-200 sm:text-2xl"
+        >
+          {profile.role}
+        </motion.p>
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.12 }}
+          className="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-zinc-500"
+        >
+          {profile.focus}
+        </motion.p>
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.18 }}
+          className="mt-6 text-lg leading-relaxed text-zinc-400"
+        >
+          I build production AI agents, hybrid RAG systems, and multi-tenant data pipelines. I co-led
+          enterprise AI delivery at Beagle Corporation, and Asta — an AI GST compliance co-pilot — won
+          Best Final-Year Project.
+        </motion.p>
 
-          {/* Right: Chat Interface */}
-          <div id="chat-launch-target" className="w-full lg:block">
-            {isChatOpen ? (
-              <ChatInterface />
-            ) : (
-              <button
-                type="button"
-                onClick={onOpenChat}
-                className="w-full h-[420px] lg:h-[500px] rounded-2xl border border-dashed border-gray-300 bg-white/80 backdrop-blur-sm shadow-sm flex flex-col items-center justify-center text-center px-8 hover:border-black hover:bg-white transition-colors"
-              >
-                <span className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">AI Chat</span>
-                <h2 className="text-3xl mb-3">Open the assistant</h2>
-                <p className="text-gray-600 max-w-sm">
-                  Start a conversation to explore my background, projects, or experience.
-                </p>
-              </button>
-            )}
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.26 }}
+          className="mt-8 flex flex-col gap-5"
+        >
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-full bg-[#d6ff4a] px-5 py-2.5 text-sm font-semibold text-[#111] transition hover:bg-[#e8ff8f]"
+            >
+              View Projects
+              <ArrowUpRight size={16} />
+            </a>
+            <a
+              href="#experience"
+              className="inline-flex items-center rounded-full border border-white/15 px-5 py-2.5 text-sm text-zinc-100 transition hover:border-white/40"
+            >
+              Experience
+            </a>
+            <a
+              href={profile.resume}
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm text-zinc-100 transition hover:border-white/40"
+            >
+              <Download size={16} />
+              Download Resume
+            </a>
           </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown size={32} className="text-gray-400" />
-        </div>
+          <SocialLinks />
+        </motion.div>
       </div>
     </section>
   );

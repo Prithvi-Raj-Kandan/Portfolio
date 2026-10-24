@@ -1,65 +1,75 @@
-import { Code2, Palette, Zap } from 'lucide-react';
+import { Reveal } from "./Reveal";
+
+const principles = [
+  {
+    title: "Agents that survive production",
+    copy: "Tool discovery, schema wiring, and single-iteration execution — the unglamorous work that keeps an agent from looping, dropping fields, or wrapping the wrong payload.",
+  },
+  {
+    title: "Forward deployed engineering",
+    copy: "I work directly on ambiguous enterprise workflows, from client problem discovery through design and into production. At Beagle Corporation I led a 5-person pod across five client engagements.",
+  },
+  {
+    title: "Pipelines with tenants",
+    copy: "Multi-tenant collectors need isolation, merge-key correctness, and load audits. The data path has to be as deliberate as the model path.",
+  },
+];
 
 export function About() {
-  const features = [
-    {
-      icon: <Code2 size={32} />,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable, and efficient code is my priority.'
-    },
-    {
-      icon: <Palette size={32} />,
-      title: 'Evolvable Features',
-      description: 'Building modular features that can evolve quickly as user needs and product goals change.'
-    },
-    {
-      icon: <Zap size={32} />,
-      title: 'Fast Shipping',
-      description: 'Shipping practical solutions quickly with a strong focus on reliability and iteration speed.'
-    }
-  ];
-
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            I'm an undergrad student in my pre-final year, BE in AIML, who loves building AI systems.
-          </p>
-        </div>
+    <section id="about" className="scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#d6ff4a]">01 — About</p>
+          <h2 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+            Full-stack AI systems, delivered close to the work.
+          </h2>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="w-16 h-16 bg-black text-white rounded-xl flex items-center justify-center mb-4">
-                {feature.icon}
-              </div>
-              <h3 className="text-2xl mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+        <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.7fr)]">
+          <Reveal delay={0.05}>
+            <div className="space-y-5 text-lg leading-relaxed text-zinc-400">
+              <p>
+                I&apos;m an AI engineer pursuing B.E. in Artificial Intelligence & Machine Learning at Global Academy
+                of Technology, Bengaluru, expected June 2027.
+              </p>
+              <p>
+                The work that interests me the most is building software that solves business problems. I&apos;ve built
+                production-grade AI agents and systems for enterprises with unique business problems. I am a person who
+                believes that great design and development go hand in hand, and I&apos;m always exploring new
+                technologies and techniques to deliver the best possible solutions.
+              </p>
+              <p>Based in Bengaluru, India. Open to remote work.</p>
             </div>
-          ))}
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">Education</p>
+              <p className="mt-3 font-display text-xl text-white">B.E. Artificial Intelligence & Machine Learning</p>
+              <p className="mt-2 text-zinc-400">Global Academy of Technology, Bengaluru</p>
+              <p className="mt-1 font-mono text-xs text-[#d6ff4a]">Expected June 2027</p>
+              <div className="mt-6 border-t border-white/10 pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">Focus</p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                  Production agents, hybrid RAG, and multi-tenant data pipelines for teams that need the system to hold
+                  up after the demo.
+                </p>
+              </div>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
-          <h3 className="text-3xl mb-6">My Journey</h3>
-          <div className="space-y-4 text-gray-600">
-            <p>
-              I started my journey back in 2023, when I joined my undergrad.
-            </p>
-            <p>
-              Driven by passion and curiosity on the developments in the field of AI and Computer Science technologies, I equipped myself with necessary skills in order to bring to life the ideas that I have.
-            </p>
-            <p>
-              My approach combines technical expertise with creative problem-solving. I believe that great design and development go hand in hand, and I'm always exploring new technologies and techniques to deliver the best possible solutions.
-            </p>
-            <p>
-              Since then I have been building projects, working as an intern, attending conferences, and getting better at being an AI engineer.
-            </p>
-          </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {principles.map((item, index) => (
+            <Reveal key={item.title} delay={0.08 * index}>
+              <article className="h-full rounded-3xl border border-white/10 bg-[#0b0d0b] p-6">
+                <p className="font-mono text-[11px] text-[#d6ff4a]">0{index + 1}</p>
+                <h3 className="mt-3 font-display text-xl text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.copy}</p>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

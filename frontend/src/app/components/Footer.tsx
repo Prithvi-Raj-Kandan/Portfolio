@@ -1,19 +1,26 @@
+import { profile } from "../data";
+
 export function Footer() {
   return (
-    <footer className="bg-black text-white py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Prithvi Raj Kandan. All rights reserved.</p>
-          </div>
-          <div className="flex gap-6">
-            <button 
-              onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hover:text-gray-300 transition-colors"
-            >
-              Back to Top
-            </button>
-          </div>
+    <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {profile.name}. {profile.location}.</p>
+        <div className="flex flex-wrap gap-5">
+          <a className="hover:text-zinc-200" href={profile.github} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a className="hover:text-zinc-200" href={profile.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a className="hover:text-zinc-200" href={profile.x} target="_blank" rel="noreferrer">
+            X
+          </a>
+          <a className="hover:text-zinc-200" href={`mailto:${profile.email}`}>
+            Email
+          </a>
+          <a className="hover:text-zinc-200" href="#home">
+            Top
+          </a>
         </div>
       </div>
     </footer>

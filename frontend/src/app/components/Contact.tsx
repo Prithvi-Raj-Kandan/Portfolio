@@ -1,53 +1,42 @@
-import { Mail, Github, Linkedin, Twitter, FileText } from 'lucide-react';
-
-const resumeLink = 'https://docs.google.com/document/d/1sEdg8TYNvI-zLko_-n6TE91kB5lJsJeO/edit?usp=sharing&ouid=115934568900446986471&rtpof=true&sd=true';
+import { FileText, Mail } from "lucide-react";
+import { profile } from "../data";
+import { Reveal } from "./Reveal";
+import { SocialLinks } from "./SocialLinks";
 
 export function Contact() {
-  const socialLinks = [
-    { icon: <Github size={24} />, href: 'https://github.com/Prithvi-Raj-Kandan', label: 'GitHub' },
-    { icon: <Linkedin size={24} />, href: 'https://www.linkedin.com/in/p-prithvi-raj-kandan-a687602a1/', label: 'LinkedIn' },
-    { icon: <Twitter size={24} />, href: 'https://x.com/PrithviRaj1213', label: 'X' }
-  ];
-
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl mb-4">Let's Connect</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            If you want to collaborate, ask a question, or discuss an opportunity, I'm happy to hear from you.
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-8 text-gray-700">
-            <Mail className="text-gray-400" />
-            <span>prithviraj82rt@gmail.com</span>
-          </div>
-
-          <div className="flex flex-wrap gap-4 items-center justify-center">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                aria-label={link.label}
-                className="w-12 h-12 bg-black text-white rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
-              >
-                {link.icon}
-              </a>
-            ))}
+    <section id="contact" className="scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b0d0b] px-6 py-12 sm:px-10 sm:py-16">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#d6ff4a]">05 — Contact</p>
+            <h2 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+              Feel free to reach out if you have any opportunities, projects, or ideas to discuss.
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg text-zinc-400">{profile.availability}</p>
 
             <a
-              href={resumeLink}
-              target="_blank"
-              rel="noreferrer"
-              className="h-12 px-4 bg-black text-white rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
+              href={`mailto:${profile.email}`}
+              className="mt-8 inline-flex items-center gap-3 font-display text-2xl text-white transition hover:text-[#d6ff4a] sm:text-3xl"
             >
-              <FileText size={20} />
-              <span className="text-sm">View Resume</span>
+              <Mail className="text-[#d6ff4a]" size={26} />
+              {profile.email}
             </a>
+
+            <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <SocialLinks tone="solid" />
+              <a
+                href={profile.resume}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-100 transition hover:border-[#d6ff4a]/50 hover:text-[#d6ff4a]"
+              >
+                <FileText size={16} />
+                View resume
+              </a>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
