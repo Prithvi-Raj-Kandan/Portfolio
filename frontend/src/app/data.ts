@@ -69,9 +69,9 @@ export const projects: Project[] = [
       "Voice-first and multimodal field-visit debriefing platform for NGOs and field teams, turning unstructured field notes, audio, and photos into structured entity graphs, semantic vector search (pgvector), and automated executive digests.",
     tech: ["Python", "FastAPI", "PostgreSQL", "pgvector", "SQLAlchemy", "Alembic", "React", "TypeScript", "AWS S3 / R2"],
     githubUrl: "https://github.com/Prithvi-Raj-Kandan/Field-Intelligence-System",
-    imageUrl: "/projects/field-intelligence-preview.png",
-    videoUrl: "/projects/field-intelligence-demo.mp4",
-    gifUrl: "/projects/field-intelligence-demo.gif",
+    imageUrl: "/projects/fieldintel-preview.png",
+    videoUrl: "/projects/fieldintel-demo.mp4",
+    gifUrl: "/projects/fieldintel-demo.gif",
   },
   {
     id: "logguard",

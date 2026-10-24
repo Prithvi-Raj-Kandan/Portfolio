@@ -9,12 +9,15 @@ type Probe = "pending" | "ready" | "missing";
 
 function useAssetProbe(url: string | undefined, enabled: boolean): Probe {
   const [state, setState] = useState<Probe>("pending");
+  const stateRef = useRef<Probe>("pending");
+  stateRef.current = state;
 
   useEffect(() => {
-    if (!enabled || !url) {
-      setState(url ? "pending" : "missing");
+    if (!url) {
+      setState("missing");
       return;
     }
+    if (!enabled || stateRef.current === "ready") return;
 
     let cancelled = false;
     setState("pending");
@@ -66,16 +69,30 @@ export function ProjectMedia({ project }: ProjectMediaProps) {
   const showVideo = active && video === "ready";
   const showGif = active && !showVideo && gif === "ready";
   const showImage = image === "ready" && !showVideo && !showGif;
+  const [videoVisible, setVideoVisible] = useState(false);
+
+  useEffect(() => {
+    if (!showVideo) {
+      setVideoVisible(false);
+      return;
+    }
+    const frame = requestAnimationFrame(() => setVideoVisible(true));
+    return () => cancelAnimationFrame(frame);
+  }, [showVideo]);
 
   useEffect(() => {
     const node = videoRef.current;
     if (!node) return;
     if (showVideo) {
       void node.play().catch(() => undefined);
-    } else {
-      node.pause();
-      node.currentTime = 0;
+      return;
     }
+    node.pause();
+    const reset = window.setTimeout(() => {
+      if (videoRef.current && !videoRef.current.paused) return;
+      if (videoRef.current) videoRef.current.currentTime = 0;
+    }, 500);
+    return () => window.clearTimeout(reset);
   }, [showVideo]);
 
   return (
@@ -125,7 +142,7 @@ export function ProjectMedia({ project }: ProjectMediaProps) {
           loop
           playsInline
           preload="metadata"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${showVideo ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${videoVisible ? "opacity-100" : "opacity-0"}`}
         />
       )}
 
