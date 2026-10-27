@@ -3,10 +3,11 @@ import { beagleStack } from "../data";
 import { Reveal } from "./Reveal";
 
 const bullets = [
-  "Co-led a 5-person engineering pod delivering 48 CortexOne functions, agents, and visual workflows across 5 enterprise client engagements (Whittier Trust, Nissan, Kia, TravelAgency, and Legal Research).",
-  "Architected and hardened multi-tenant dlt + MotherDuck (DuckDB) data collectors for X and Ahrefs with tenant isolation, merge-key correctness, load auditing, and GA4 conformance testing.",
-  "Built and deployed Whittier Trust's deterministic email assembly layer (locked templates, validation, CRM-ready rendering, security hardening) integrated with the CortexOne Email Agent and production workflow.",
-  "Resolved complex agent orchestration failure modes (tool discovery, JSON field-mapping, repeated generation, wrapped-output bugs) via single-iteration execution and explicit schema wiring.",
+  "Co-led a five-person engineering team delivering 48 production serverless AI functions, autonomous agents, and automated workflows across Nissan, Vice, Whittier Trust, and enterprise legal and travel engagements.",
+  "Developed and hardened multi-tenant dlt collectors for X and Ahrefs, implementing tenant and account isolation, MotherDuck destinations, merge-key correctness, load auditing, failure diagnostics, and credential-safe live testing against the repository's GA4 conformance standard.",
+  "Configured and refined multi-agent pipelines and visual orchestration workflows, resolving tool-discovery, JSON field-mapping, repeated-generation, and wrapped-output failures with plain-tool event support, single-iteration agent execution, and explicit per-field wiring.",
+  "Built and deployed Whittier Trust's deterministic email assembly layer (locked templates, validation, CRM-ready rendering, security hardening) integrated with the automated email agent and production workflow.",
+  "Coordinated cross-pod delivery with product and platform teams, translating test findings into architecture decisions while managing dependencies across client credentials, database schemas, MotherDuck permissions, deployment ownership, and serverless runtime constraints.",
 ];
 
 const highlights = [
@@ -14,7 +15,7 @@ const highlights = [
     icon: Trophy,
     title: "Winner — Best Final-Year Project Award",
     meta: "Oct 2026",
-    copy: "Won the college-wide Best Project Award at Global Academy of Technology for Asta, an AI-powered SME GST and compliance co-pilot.",
+    copy: "Won the college-wide Best Project Award at Global Academy of Technology for Asta, an AI-powered SME GST compliance and GSTR-1 filing co-pilot.",
   },
   {
     icon: Flag,

@@ -33,8 +33,7 @@ export function Header() {
           ))}
           <a
             href={profile.resume}
-            target="_blank"
-            rel="noreferrer"
+            download={profile.resumeDownload}
             className="inline-flex items-center gap-2 rounded-full border border-[#d6ff4a]/40 px-3.5 py-1.5 text-sm text-[#d6ff4a] transition hover:bg-[#d6ff4a] hover:text-[#111]"
           >
             <FileText size={15} />
@@ -68,8 +67,7 @@ export function Header() {
             ))}
             <a
               href={profile.resume}
-              target="_blank"
-              rel="noreferrer"
+              download={profile.resumeDownload}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#d6ff4a] px-4 py-3 text-sm font-medium text-[#111]"
             >
               <FileText size={16} />

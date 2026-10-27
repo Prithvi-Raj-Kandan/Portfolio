@@ -9,7 +9,8 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/prithvi-raj-kandan/",
   x: "https://x.com/PrithviRaj1213",
   site: "https://www.prithvirajkandan.dev/",
-  resume: "/Prithvi_Raj_Kandan_Resume.pdf",
+  resume: "/Prithvi_Raj_Kandan.pdf",
+  resumeDownload: "Prithvi_Raj_Kandan.pdf",
 } as const;
 
 export const navLinks = [
@@ -41,8 +42,8 @@ export const projects: Project[] = [
     kicker: "Compliance platform",
     badge: "Best Final-Year Project Award",
     description:
-      "End-to-end compliance platform for Indian SMEs combining OCR invoice ingestion (Tesseract + PyMuPDF), deterministic GST rule validation, obligation and filing tracking, WhatsApp alerts, and a LangGraph + pgvector compliance co-pilot with human-in-the-loop drafts.",
-    tech: ["Python", "FastAPI", "LangGraph", "PostgreSQL", "pgvector", "React", "TypeScript", "Docker"],
+      "End-to-end GST compliance platform for Indian SMEs. PyMuPDF and Tesseract OCR ingest multi-format invoices, a MetaOrchestrator co-pilot combines Gemini tool-calling with pgvector retrieval over GST statutes, and GST Suvidha Provider (GSP) APIs automate GSTIN/PAN verification and human-in-the-loop GSTR-1 return payload generation with deterministic tax splits in under 1.8s per invoice.",
+    tech: ["Python", "FastAPI", "LangGraph", "PostgreSQL", "pgvector", "GSP APIs", "PyMuPDF", "Tesseract OCR", "React", "TypeScript", "Docker"],
     githubUrl: "https://github.com/Prithvi-Raj-Kandan/Asta",
     imageUrl: "/projects/asta-preview.png",
     videoUrl: "/projects/asta-demo.mp4",
@@ -97,7 +98,7 @@ export const skillGroups = [
       "LangChain",
       "Hybrid RAG (BM25 + Dense + Cross-Encoder Reranking)",
       "Model Context Protocol (MCP)",
-      "CortexOne FaaS",
+      "Serverless FaaS",
       "Prompt Engineering",
       "RAGAS Evaluation",
       "Google Gemini / OpenAI / Cohere APIs",
@@ -134,10 +135,11 @@ export const beagleStack = [
   "Python",
   "JavaScript",
   "MCP",
-  "CortexOne FaaS",
+  "Serverless FaaS",
   "MotherDuck (DuckDB)",
   "dlt",
   "REST APIs",
+  "Agent orchestration",
   "GitHub Actions",
   "Pytest",
 ] as const;

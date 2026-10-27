@@ -27,8 +27,7 @@ export function Contact() {
               <SocialLinks tone="solid" />
               <a
                 href={profile.resume}
-                target="_blank"
-                rel="noreferrer"
+                download={profile.resumeDownload}
                 className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-100 transition hover:border-[#d6ff4a]/50 hover:text-[#d6ff4a]"
               >
                 <FileText size={16} />

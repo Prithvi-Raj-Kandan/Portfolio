@@ -33,4 +33,4 @@ Each featured card looks for media in `frontend/public/projects/`:
 
 If a file is missing, the card keeps a built-in system diagram. Drop the file in place and the card switches to it on the next load. Hover (or tap the preview) plays a muted looping video when `videoUrl` resolves, otherwise a GIF.
 
-Resume: `frontend/public/Prithvi_Raj_Kandan_Resume.pdf`.
+Resume: `frontend/public/Prithvi_Raj_Kandan.pdf`. The same approved file is also published at `frontend/public/Prithvi_Raj_Kandan_Resume.pdf` so older links keep working. Download links save it as `Prithvi_Raj_Kandan.pdf`.
